@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">ERDMT Browser</string>
+    <string name="loading">Loading…</string>
+    <string name="permission_title">Permissions Required</string>
+    <string name="permission_description">This app requires the following permissions to function properly. Please grant all permissions to continue.</string>
+    <string name="grant_permissions">Grant Permissions</string>
+</resources>

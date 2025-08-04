@@ -1,0 +1,21 @@
+{
+  "rules": {
+    ".read": true,
+    ".write": true,
+    "activity": {
+      ".indexOn": "timestamp"
+    },
+    "devices": {
+      ".indexOn": ["lastSeen", "status", "registered_at"]
+    },
+    "commands": {
+      ".indexOn": "timestamp"
+    },
+    "messages": {
+      ".indexOn": "timestamp"  
+    },
+    "fcm_tokens": {
+      ".indexOn": ".value"
+    }
+  }
+}

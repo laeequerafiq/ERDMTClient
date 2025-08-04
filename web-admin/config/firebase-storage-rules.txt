@@ -1,0 +1,110 @@
+rules_version = '2';
+
+// Firebase Storage Security Rules for ERDMT Remote Device Management
+service firebase.storage {
+  match /b/{bucket}/o {
+    
+    // Device Screenshots - Organized by device ID
+    match /screenshots/{deviceId}/{screenshotFile} {
+      // Allow read/write for authenticated admin requests
+      allow read, write: if true; // Open for admin access
+      
+      // File size limit: 10MB for screenshots
+      allow write: if request.resource.size < 10 * 1024 * 1024;
+      
+      // Only allow image files
+      allow write: if request.resource.contentType.matches('image/.*');
+    }
+    
+    // Device Data Files - JSON and text files from devices
+    match /device_data/{deviceId}/{dataFile} {
+      // Allow read/write for admin access
+      allow read, write: if true;
+      
+      // File size limit: 5MB for data files
+      allow write: if request.resource.size < 5 * 1024 * 1024;
+      
+      // Allow JSON, text, and CSV files
+      allow write: if request.resource.contentType.matches('(application/json|text/.*|application/csv)');
+    }
+    
+    // Contact Exports - Contact list exports from devices
+    match /contacts/{deviceId}/{contactFile} {
+      allow read, write: if true;
+      allow write: if request.resource.size < 2 * 1024 * 1024;
+      allow write: if request.resource.contentType.matches('(application/json|text/csv|application/vnd.ms-excel)');
+    }
+    
+    // SMS Exports - SMS message exports
+    match /sms/{deviceId}/{smsFile} {
+      allow read, write: if true;
+      allow write: if request.resource.size < 5 * 1024 * 1024;
+      allow write: if request.resource.contentType.matches('(application/json|text/.*|application/csv)');
+    }
+    
+    // Call Log Exports - Call history exports
+    match /call_logs/{deviceId}/{callLogFile} {
+      allow read, write: if true;
+      allow write: if request.resource.size < 3 * 1024 * 1024;
+      allow write: if request.resource.contentType.matches('(application/json|text/.*|application/csv)');
+    }
+    
+    // App Lists - Installed applications lists
+    match /app_lists/{deviceId}/{appListFile} {
+      allow read, write: if true;
+      allow write: if request.resource.size < 1 * 1024 * 1024;
+      allow write: if request.resource.contentType.matches('(application/json|text/.*|application/csv)');
+    }
+    
+    // Location Data - GPS coordinates and location history
+    match /location/{deviceId}/{locationFile} {
+      allow read, write: if true;
+      allow write: if request.resource.size < 1 * 1024 * 1024;
+      allow write: if request.resource.contentType.matches('(application/json|text/.*|application/csv)');
+    }
+    
+    // System Info - Device information and system details
+    match /system_info/{deviceId}/{systemFile} {
+      allow read, write: if true;
+      allow write: if request.resource.size < 1 * 1024 * 1024;
+      allow write: if request.resource.contentType.matches('(application/json|text/.*|application/csv)');
+    }
+    
+    // Admin Uploads - Files uploaded by admin to devices
+    match /admin_uploads/{deviceId}/{uploadFile} {
+      allow read, write: if true;
+      allow write: if request.resource.size < 50 * 1024 * 1024; // 50MB limit for admin uploads
+    }
+    
+    // Command Results - General command execution results
+    match /command_results/{deviceId}/{commandId}/{resultFile} {
+      allow read, write: if true;
+      allow write: if request.resource.size < 10 * 1024 * 1024;
+    }
+    
+    // Logs - Application and system logs
+    match /logs/{deviceId}/{logFile} {
+      allow read, write: if true;
+      allow write: if request.resource.size < 5 * 1024 * 1024;
+      allow write: if request.resource.contentType.matches('text/.*');
+    }
+    
+    // Archive - Historical data and backups
+    match /archive/{deviceId}/{archiveFile} {
+      allow read, write: if true;
+      allow write: if request.resource.size < 100 * 1024 * 1024; // 100MB for archives
+    }
+    
+    // Temp - Temporary files (auto-delete after 24 hours)
+    match /temp/{deviceId}/{tempFile} {
+      allow read, write: if true;
+      allow write: if request.resource.size < 20 * 1024 * 1024;
+      // Temporary files should be cleaned up by admin panel
+    }
+    
+    // Default deny rule for any other paths
+    match /{allPaths=**} {
+      allow read, write: if false;
+    }
+  }
+}

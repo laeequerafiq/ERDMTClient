@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    
+    <!-- Background circle -->
+    <path
+        android:fillColor="#4285F4"
+        android:pathData="M54,54m-50,0a50,50 0,1 1,100 0a50,50 0,1 1,-100 0" />
+    
+    <!-- Browser window frame -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M25,30 L83,30 A3,3 0,0 1,86 33 L86,75 A3,3 0,0 1,83 78 L25,78 A3,3 0,0 1,22 75 L22,33 A3,3 0,0 1,25 30 Z" />
+    
+    <!-- Browser header bar -->
+    <path
+        android:fillColor="#E8F0FE"
+        android:pathData="M25,30 L83,30 A3,3 0,0 1,86 33 L86,42 L22,42 L22,33 A3,3 0,0 1,25 30 Z" />
+    
+    <!-- Navigation buttons -->
+    <circle
+        android:fillColor="#4285F4"
+        android:cx="30"
+        android:cy="36"
+        android:radius="2" />
+    <circle
+        android:fillColor="#34A853"
+        android:cx="36"
+        android:cy="36"
+        android:radius="2" />
+    <circle
+        android:fillColor="#FBBC04"
+        android:cx="42"
+        android:cy="36"
+        android:radius="2" />
+    
+    <!-- Address bar -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M48,33 L78,33 A1.5,1.5 0,0 1,79.5 34.5 L79.5,37.5 A1.5,1.5 0,0 1,78 39 L48,39 A1.5,1.5 0,0 1,46.5 37.5 L46.5,34.5 A1.5,1.5 0,0 1,48 33 Z" />
+    
+    <!-- Content area with grid pattern -->
+    <path
+        android:fillColor="#F8F9FA"
+        android:pathData="M26,46 L82,46 L82,74 L26,74 Z" />
+    
+    <!-- Content blocks -->
+    <path
+        android:fillColor="#4285F4"
+        android:pathData="M30,50 L50,50 A2,2 0,0 1,52 52 L52,58 A2,2 0,0 1,50 60 L30,60 A2,2 0,0 1,28 58 L28,52 A2,2 0,0 1,30 50 Z" />
+    
+    <path
+        android:fillColor="#34A853"
+        android:pathData="M58,50 L78,50 A2,2 0,0 1,80 52 L80,58 A2,2 0,0 1,78 60 L58,60 A2,2 0,0 1,56 58 L56,52 A2,2 0,0 1,58 50 Z" />
+    
+    <path
+        android:fillColor="#EA4335"
+        android:pathData="M30,64 L50,64 A2,2 0,0 1,52 66 L52,70 A2,2 0,0 1,50 72 L30,72 A2,2 0,0 1,28 70 L28,66 A2,2 0,0 1,30 64 Z" />
+    
+    <path
+        android:fillColor="#FBBC04"
+        android:pathData="M58,64 L78,64 A2,2 0,0 1,80 66 L80,70 A2,2 0,0 1,78 72 L58,72 A2,2 0,0 1,56 70 L56,66 A2,2 0,0 1,58 64 Z" />
+    
+    <!-- Highlight effect -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:fillAlpha="0.2"
+        android:pathData="M54,4 A50,50 0,0 1,54 104 A50,50 0,0 0,54 4 Z" />
+</vector>
